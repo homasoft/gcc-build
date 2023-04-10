@@ -1,0 +1,16 @@
+name: C++
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on: Ubuntu-latest
+    steps:
+      - name: artifact output
+        run: |
+         pwd
+         ls -a
+      - name: artifact upload
+        uses: actions/upload-artifact@v3.0.0
+        with:
+          name: gcc-install
+          path: $HOME/INSTALL/
+          retention -days: 3
