@@ -23,6 +23,7 @@ jobs:
          mv mpc-1.3.1 mpc
          mkdir build
          cd build
+         unset LIBRARY_PATH CPATH C_INCLUDE_PATH PKG_CONFIG_PATH CPLUS_INCLUDE_PATH INCLUDE
          ./../configure --prefix=/home/runner/work/gcc-build/gcc-build/install --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --enable-languages=c,c++ --disable-multilib --disable-bootstrap
          make
          make install
