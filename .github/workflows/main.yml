@@ -8,6 +8,7 @@ jobs:
         run: |
          sudo apt update
          sudo apt install build-essential
+         sudo apt install *mingw-w64*
          sudo apt install mingw-w64 m4
          wget https://ftp.gnu.org/gnu/gcc/gcc-12.2.0/gcc-12.2.0.tar.gz
          wget https://ftp.gnu.org/gnu/gmp/gmp-6.2.1.tar.bz2
@@ -24,7 +25,7 @@ jobs:
          mkdir build
          cd build
          unset LIBRARY_PATH CPATH C_INCLUDE_PATH PKG_CONFIG_PATH CPLUS_INCLUDE_PATH INCLUDE
-         ./../configure --prefix=/home/runner/work/gcc-build/gcc-build/install --host=x86_64-w64-mingw32 --enable-languages=c,c++ --disable-multilib --disable-bootstrap --disable-nls
+         ./../configure --prefix=/home/runner/work/gcc-build/gcc-build/install --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --enable-languages=c,c++ --disable-multilib --disable-bootstrap --disable-nls
          make
          make install
       - name: artifact upload
