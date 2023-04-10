@@ -24,7 +24,7 @@ jobs:
          mkdir build
          cd build
          unset LIBRARY_PATH CPATH C_INCLUDE_PATH PKG_CONFIG_PATH CPLUS_INCLUDE_PATH INCLUDE
-         ./../configure --prefix=/home/runner/work/gcc-build/gcc-build/install --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --enable-languages=c,c++ --disable-multilib --disable-bootstrap
+         ./../configure --prefix=/home/runner/work/gcc-build/gcc-build/install --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --enable-languages=c,c++ --disable-multilib --disable-bootstrap --disable-nls
          make
          make install
       - name: artifact upload
