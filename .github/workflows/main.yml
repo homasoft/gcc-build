@@ -6,8 +6,9 @@ jobs:
     steps:
       - name: artifact output
         run: |
-         pwd
-         ls -a
+         sudo apt update
+         sudo apt install build-essential
+         sudo apt install mingw-w64
       - name: artifact upload
         uses: actions/upload-artifact@v3.0.0
         with:
