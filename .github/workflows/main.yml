@@ -25,7 +25,7 @@ jobs:
          mkdir build
          cd build
          unset LIBRARY_PATH CPATH C_INCLUDE_PATH PKG_CONFIG_PATH CPLUS_INCLUDE_PATH INCLUDE
-         sudo ./../configure CC=/usr/bin/x86_64-w64-mingw32-gcc-win32 --prefix=/home/runner/work/gcc-build/gcc-build/install --enable-languages=c,c++ --disable-multilib --disable-bootstrap --disable-nls
+         sudo ./../configure CC=/usr/bin/x86_64-w64-mingw32-gcc-win32 --disable-checking --prefix=/home/runner/work/gcc-build/gcc-build/install --enable-languages=c,c++ --disable-multilib --disable-bootstrap --disable-nls
          sudo make
          sudo make install
       - name: artifact upload
