@@ -25,9 +25,9 @@ jobs:
          mkdir build
          cd build
          unset LIBRARY_PATH CPATH C_INCLUDE_PATH PKG_CONFIG_PATH CPLUS_INCLUDE_PATH INCLUDE
-         ./../configure CC=/bin/gcc-mingw-w64-x86-64-win32 --prefix=/home/runner/work/gcc-build/gcc-build/install --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --enable-languages=c,c++ --disable-multilib --disable-bootstrap --disable-nls
-         make
-         make install
+         sudo ./../configure CC=/usr/bin/x86_64-w64-mingw32-gcc-win32 --prefix=/home/runner/work/gcc-build/gcc-build/install --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --enable-languages=c,c++ --disable-multilib --disable-bootstrap --disable-nls
+         sudo make
+         sudo make install
       - name: artifact upload
         uses: actions/upload-artifact@v3.0.0
         with:
