@@ -39,5 +39,5 @@ jobs:
         uses: actions/upload-artifact@v3.0.0
         with:
           name: gcc-install
-          path: /home/runner/work/gcc-build/gcc-build/install
+          path: /home/runner/work/gcc-build/gcc-build/install/
           retention -days: 3
