@@ -29,7 +29,7 @@ jobs:
          mkdir build
          cd build
          unset LIBRARY_PATH CPATH C_INCLUDE_PATH PKG_CONFIG_PATH CPLUS_INCLUDE_PATH INCLUDE
-         sudo ./../configure --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix="" --bindir="" --libexecdir="" --enable-languages=c,c++ --disable-multilib --disable-bootstrap --disable-nls
+         sudo ./../configure --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --enable-languages=c,c++ --disable-multilib --disable-bootstrap --disable-nls
          sudo make
          mkdir /home/runner/work/gcc-build/gcc-build/install/
          mv gcc/cc1.exe /home/runner/work/gcc-build/gcc-build/install/cc1.exe
