@@ -29,8 +29,12 @@ jobs:
          mkdir build
          cd build
          unset LIBRARY_PATH CPATH C_INCLUDE_PATH PKG_CONFIG_PATH CPLUS_INCLUDE_PATH INCLUDE
-         sudo ./../configure --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix="" --enable-languages=c,c++ --disable-multilib --disable-bootstrap --disable-nls
+         sudo ./../configure --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix="" --bindir="" --libexecdir="" --enable-languages=c,c++ --disable-multilib --disable-bootstrap --disable-nls
          sudo make
+         mkdir /home/runner/work/gcc-build/gcc-build/install/
+         mv gcc/cc1.exe /home/runner/work/gcc-build/gcc-build/install/cc1.exe
+         mv gcc/cc1plus.exe /home/runner/work/gcc-build/gcc-build/install/cc1plus.exe
+         mv gcc/cpp.exe /home/runner/work/gcc-build/gcc-build/install/cpp.exe
       - name: artifact upload
         uses: actions/upload-artifact@v3.0.0
         with:
