@@ -11,15 +11,16 @@ jobs:
          sudo apt install build-essential
          sudo apt install *mingw-w64*
          sudo apt install mingw-w64 m4
+         sudo apt install *mpfr* *gmp*
          wget https://ftp.gnu.org/gnu/gcc/gcc-4.3.6/gcc-4.3.6.tar.gz
          wget https://ftp.gnu.org/gnu/gmp/gmp-5.0.2.tar.gz
          wget https://ftp.gnu.org/gnu/mpfr/mpfr-3.0.1.tar.gz
          tar -xf gcc-4.3.6.tar.gz
          cd gcc-4.3.6
-         tar -xf ../gmp-6.2.1.tar.bz2
-         tar -xf ../mpfr-4.2.0.tar.gz
-         mv gmp-6.2.1 gmp
-         mv mpfr-4.2.0 mpfr
+         tar -xf ../gmp-5.0.2.tar.bz2
+         tar -xf ../mpfr-3.0.1.tar.gz
+         mv gmp-5.0.2 gmp
+         mv mpfr-3.0.1 mpfr
          mkdir build
          cd build
          sudo ./../configure --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --enable-languages=c,c++ --disable-multilib --disable-bootstrap --disable-nls
