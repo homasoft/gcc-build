@@ -10,7 +10,7 @@ jobs:
          sudo apt update
          sudo apt install build-essential
          sudo apt install *mingw-w64*
-         sudo apt install mingw-w64 m4 *gmp* *mpfr* *mpc* *isl*
+         sudo apt install mingw-w64 m4 *gmp* *mpfr* *mpc* *isl* *flex*
          wget https://ftp.gnu.org/gnu/gcc/gcc-4.3.6/gcc-4.3.6.tar.gz
          wget https://ftp.gnu.org/gnu/gmp/gmp-4.1.4.tar.gz
          wget https://ftp.gnu.org/gnu/mpfr/mpfr-2.4.2.tar.gz
