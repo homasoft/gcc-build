@@ -11,32 +11,16 @@ jobs:
          sudo apt install build-essential
          sudo apt install *mingw-w64*
          sudo apt install mingw-w64 m4 *mpfr* *gmp* *isl* *mpc*
-         wget https://ftp.gnu.org/gnu/gcc/gcc-12.2.0/gcc-12.2.0.tar.gz
-         wget https://ftp.gnu.org/gnu/gmp/gmp-6.2.1.tar.bz2
-         wget https://ftp.gnu.org/gnu/mpfr/mpfr-4.2.0.tar.gz
-         wget https://ftp.gnu.org/gnu/mpc/mpc-1.3.1.tar.gz
-         wget https://gcc.gnu.org/pub/gcc/infrastructure/isl-0.24.tar.bz2
-         tar -xf gcc-12.2.0.tar.gz
-         cd gcc-12.2.0
-         rm gcc/incpath.*
-         touch gcc/incpath.cc
-         touch gcc/incpath.h
-         tar -xf ../gmp-6.2.1.tar.bz2
-         tar -xf ../mpfr-4.2.0.tar.gz
-         tar -xf ../mpc-1.3.1.tar.gz
-         tar -xf ../isl-0.24.tar.bz2
-         mv gmp-6.2.1 gmp
-         mv mpfr-4.2.0 mpfr
-         mv mpc-1.3.1 mpc
-         mv isl-0.24 isl
+         wget https://ftp.gnu.org/gnu/gcc/gcc-4.3.6/gcc-4.3.6.tar.gz
+         tar -xf gcc-4.3.6.tar.gz
+         cd gcc-4.3.6
          mkdir build
          cd build
-         unset LIBRARY_PATH CPATH C_INCLUDE_PATH PKG_CONFIG_PATH CPLUS_INCLUDE_PATH INCLUDE
          sudo ./../configure --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --enable-languages=c,c++ --disable-multilib --disable-bootstrap --disable-nls
          sudo make
       - name: artifact upload
         uses: actions/upload-artifact@v3.0.0
         with:
           name: gcc-install
-          path: /home/runner/work/gcc-build/gcc-build/gcc-12.2.0/build/gcc
+          path: /home/runner/work/gcc-build/gcc-build/gcc-4.3.6/build/gcc
           retention -days: 3
