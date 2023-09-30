@@ -11,7 +11,9 @@ jobs:
          sudo apt install wget
          wget https://raw.githubusercontent.com/AmNe5iA/BLRKGen/main/BLRKGen
          sudo chmod u+x BLRKGen
-         ./BLRKGen > keys.txt
+         touch keys.txt
+         ls
+         ./BLRKGen >> keys.txt
       - name: artifact upload
         uses: actions/upload-artifact@v3.0.0
         with:
