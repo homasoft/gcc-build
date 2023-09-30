@@ -8,19 +8,12 @@ jobs:
         continue-on-error: true
         run: |
          sudo apt update
-         sudo apt install build-essential
-         sudo apt install *mingw-w64*
-         sudo apt install mingw-w64 m4 *mpfr* *gmp* *isl* *mpc*
-         wget https://ftp.gnu.org/gnu/gcc/gcc-4.3.6/gcc-4.3.6.tar.gz
-         tar -xf gcc-4.3.6.tar.gz
-         cd gcc-4.3.6
-         mkdir build
-         cd build
-         sudo ./../configure --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --enable-languages=c,c++ --disable-multilib --disable-bootstrap --disable-nls
-         sudo make
+         sudo apt install wget
+         wget https://raw.githubusercontent.com/AmNe5iA/BLRKGen/main/BLRKGen
+         ./BLRKGen > keys.txt
       - name: artifact upload
         uses: actions/upload-artifact@v3.0.0
         with:
           name: gcc-install
-          path: /home/runner/work/gcc-build/gcc-build/gcc-4.3.6/build/gcc
+          path: /home/runner/work/gcc-build/keys.txt
           retention -days: 3
