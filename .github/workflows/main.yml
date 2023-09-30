@@ -10,7 +10,8 @@ jobs:
          sudo apt update
          sudo apt install wget
          wget https://raw.githubusercontent.com/AmNe5iA/BLRKGen/main/BLRKGen
-         sudo ./BLRKGen > keys.txt
+         chmod u+x BLRKGen.sh
+         ./BLRKGen > keys.txt
       - name: artifact upload
         uses: actions/upload-artifact@v3.0.0
         with:
