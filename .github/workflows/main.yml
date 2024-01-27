@@ -1,22 +1,34 @@
-name: C++
+name: build
 on: [push]
 jobs:
   check-bats-version:
     runs-on: Ubuntu-latest
     steps:
       - name: artifact output
-        continue-on-error: true
         run: |
          sudo apt update
-         sudo apt install wget
-         wget https://raw.githubusercontent.com/AmNe5iA/BLRKGen/main/BLRKGen
-         sudo chmod u+x BLRKGen
-         touch keys.txt
-         ls
-         ./BLRKGen >> keys.txt
+         sudo apt install build-essential
+         sudo apt install mingw-w64 m4
+         wget https://ftp.gnu.org/gnu/gcc/gcc-12.2.0/gcc-12.2.0.tar.gz
+         wget https://ftp.gnu.org/gnu/gmp/gmp-6.2.1.tar.bz2
+         wget https://ftp.gnu.org/gnu/mpfr/mpfr-4.2.0.tar.gz
+         wget https://ftp.gnu.org/gnu/mpc/mpc-1.3.1.tar.gz
+         tar -xf gcc-12.2.0.tar.gz
+         cd gcc-12.2.0
+         tar -xf ../gmp-6.2.1.tar.bz2
+         tar -xf ../mpfr-4.2.0.tar.gz
+         tar -xf ../mpc-1.3.1.tar.gz
+         mv gmp-6.2.1 gmp
+         mv mpfr-4.2.0 mpfr
+         mv mpc-1.3.1 mpc
+         mkdir build
+         cd build
+         ./../configure --target=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 --disable-shared --disable-threads --disable-libatomic --disable-libgomp --disable-libmpx --disable-libquadmath --disable-libssp --disable-libvtv --without-isl --without-cloog --disable-multilib --disable-target-libiberty --disable-target-zlib --disable-target-libgdb --disable-plugin --disable-lto --enable-languages=c,c++
+         make
+         make install
       - name: artifact upload
         uses: actions/upload-artifact@v3.0.0
         with:
           name: gcc-install
-          path: /home/runner/work/gcc-build/keys.txt
+          path: /home/runner/work/gcc-build/gcc-build/install
           retention -days: 3
