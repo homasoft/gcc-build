@@ -24,7 +24,7 @@ jobs:
          mv mpc-1.3.1 mpc
          mkdir build
          cd build
-         ./../configure --target=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 --disable-shared --disable-threads --disable-libatomic --disable-libgomp --disable-libmpx --disable-libquadmath --disable-libssp --disable-libvtv --without-isl --without-cloog --disable-multilib --disable-target-libiberty --disable-target-zlib --disable-target-libgdb --disable-plugin --disable-lto --disable-bootstrap --disable-nls --enable-languages=c,c++ || (exit $($? - 1))
+         ./../configure --target=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 --disable-shared --disable-threads --disable-libatomic --disable-libgomp --disable-libmpx --disable-libquadmath --disable-libssp --disable-libvtv --without-isl --without-cloog --disable-multilib --disable-target-libiberty --disable-target-zlib --disable-target-libgdb --disable-plugin --disable-lto --disable-bootstrap --disable-nls --enable-languages=c,c++
          make
       - name: artifact upload
         uses: actions/upload-artifact@v3.0.0
