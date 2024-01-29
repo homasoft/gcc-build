@@ -15,8 +15,8 @@ jobs:
          cd gcc-3.4.6
          mkdir build
          cd build
-         ./../configure --target=x86_64-elf --build=x86_64-linux --host=x86_64-w64-mingw32 --disable-nls --enable-languages=c --without-headers --disable-shared --disable-threads --disable-libatomic --disable-libgomp --disable-libmpx --disable-libquadmath --disable-libssp --disable-libvtv --without-isl --without-cloog --disable-multilib --disable-target-libiberty --disable-target-zlib --disable-target-libgdb --disable-plugin --disable-lto --disable-bootstrap
-         make all-gcc
+         ./../configure --target=x86_64-elf --build=x86_64-linux --host=x86_64-w64-mingw32 --disable-nls --enable-languages=c,c++ --without-headers --disable-shared --disable-threads --disable-libatomic --disable-libgomp --disable-libmpx --disable-libquadmath --disable-libssp --disable-libvtv --without-isl --without-cloog --disable-multilib --disable-target-libiberty --disable-target-zlib --disable-target-libgdb --disable-plugin --disable-lto --disable-bootstrap
+         make
       - name: artifact upload
         continue-on-error: true
         uses: actions/upload-artifact@v3.0.0
