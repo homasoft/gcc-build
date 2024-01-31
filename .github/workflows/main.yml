@@ -11,7 +11,6 @@ jobs:
       - name: artifact output
         continue-on-error: true
         run: |
-          "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat
           git config --global core.autocrlf false
           git clone https://github.com/llvm/llvm-project.git
           git checkout llvmorg-17.0.6
