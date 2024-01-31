@@ -14,6 +14,7 @@ jobs:
           git config --global core.autocrlf false
           git clone https://github.com/llvm/llvm-project.git
           git checkout llvmorg-17.0.6
+          cd llvm-project
           mkdir build
           cd build
           cmake -DLLVM_ENABLE_PROJECTS=clang -G "Visual Studio 16 2019" -A x64 -Thost=x64 ..\llvm
