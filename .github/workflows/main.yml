@@ -11,18 +11,21 @@ jobs:
       - name: artifact output
         continue-on-error: true
         run: |
+          "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat
           git config --global core.autocrlf false
           git clone https://github.com/llvm/llvm-project.git
           git checkout llvmorg-17.0.6
           cd llvm-project
           mkdir build
           cd build
-          cmake -DLLVM_ENABLE_PROJECTS=clang -G "Visual Studio 16 2019" -A x64 -Thost=x64 ..\llvm
-          msbuild clang.vcxproj /t:build /p:configuration=Release /p:platform=x64 -maxcpucount
+          $Env:CC = "cl"
+          $Env:CXX = "cl"
+          cmake -GNinja -DLLVM_ENABLE_PROJECTS=clang ..\llvm
+          ninja clang
       - name: artifact upload
         continue-on-error: true
         uses: actions/upload-artifact@v3.0.0
         with:
           name: llvm-clang
-          path: .
+          path: D:\a\gcc-build\gcc-build\llvm-project\build
           retention -days: 3
