@@ -4,8 +4,10 @@ jobs:
   build:
     runs-on: windows-2019
     steps:
-      - name: set msbuild
-        uses: microsoft/setup-msbuild@1.0.2
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v1.1
+        with:
+          msbuild-architecture: x64
       - name: artifact output
         continue-on-error: true
         run: |
