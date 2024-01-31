@@ -4,10 +4,11 @@ jobs:
   build:
     runs-on: windows-2019
     steps:
+      - name: set msbuild
+        uses: microsoft/setup-msbuild@1.0.2
       - name: artifact output
         continue-on-error: true
         run: |
-          "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvarsall.bat"
           git config --global core.autocrlf false
           git clone https://github.com/llvm/llvm-project.git
           git checkout llvmorg-17.0.6
